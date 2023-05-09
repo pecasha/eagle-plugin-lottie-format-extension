@@ -1,0 +1,1 @@
+import "@dotlottie/player-component";
