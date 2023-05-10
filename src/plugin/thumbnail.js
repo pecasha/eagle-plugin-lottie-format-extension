@@ -13,17 +13,12 @@ module.exports = async ({ src, dest, item }) => {
             });
 
             const player = document.createElement("dotlottie-player");
-            player.mode = "normal";
-            player.autoplay = true;
-            player.loop = true;
             document.body.appendChild(player);
-            player.load(src);
-
-            const lottie = await new Promise(resolve => {
-                player.addEventListener("ready", () => {
-                    resolve(player.getLottie());
-                });
-            });
+            await new Promise(resolve => setTimeout(resolve, 100));
+            await player.load(src);
+            player.seek("50%");
+            player.pause();
+            const lottie = player.getLottie();
 
             const width = lottie.animationData.w
             const height = lottie.animationData.h;
@@ -33,16 +28,17 @@ module.exports = async ({ src, dest, item }) => {
             });
             const svgUrl = window.URL.createObjectURL(svg);
 
-            const canvas = document.querySelector("canvas");
+            const canvas = document.createElement("canvas");
             canvas.width = width;
             canvas.height = height;
+            document.body.appendChild(canvas);
 
             const ctx = canvas.getContext("2d");
 
             await new Promise(resolve => {
                 const img = new Image(width, height);
                 img.onload = async () => {
-                    ctx.drawImage(this, 0, 0);
+                    ctx.drawImage(img, 0, 0);
                     window.URL.revokeObjectURL(svgUrl);
                     const blob = await new Promise(resolve => canvas.toBlob(resolve));
                     if(blob) {
