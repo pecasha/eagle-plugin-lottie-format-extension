@@ -11,7 +11,7 @@ const THEME_COLOR = {
     purple: ["#393547", "#2e2a3a", "#73707d", "#d7d7da"]
 }
 
-window.onload = () => {
+window.onload = async () => {
     const $durationTotal = document.querySelector(".duration-total");
     const $durationCurrent = document.querySelector(".duration-current");
     const $cursor = document.querySelector(".cursor");
@@ -24,15 +24,11 @@ window.onload = () => {
 
     try {
         const player = document.querySelector("dotlottie-player");
-        player.load(filePath);
+        await player.load(filePath);
 
-        let totalFrames = 0;
+        let totalFrames = player.getLottie().totalFrames;
+        $durationTotal.innerHTML = totalFrames.toString();
 
-        player.addEventListener("ready", event => {
-            console.log(player.getLottie());
-            totalFrames = player.getLottie().totalFrames;
-            $durationTotal.innerHTML = totalFrames.toString();
-        });
         player.addEventListener("frame", event => {
             const current = Math.ceil(event.detail.frame);
             $cursor.style.left = `${current / totalFrames * 100}%`;
