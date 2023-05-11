@@ -1,4 +1,4 @@
-# Eagle-Plugin-Lottie-Preview
+# Eagle-Plugin-Lottie-Format-Extension
 > Eagle dotLottie文件格式扩展插件
 
 ## 开发

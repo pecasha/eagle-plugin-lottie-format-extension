@@ -1,11 +1,11 @@
 {
-    "name": "eagle-plugin-lottie-preview",
+    "name": "eagle-plugin-lottie-format-extension",
     "version": "1.0.0",
     "description": "Eagle dotLottie文件格式扩展插件",
     "author": "chuck<chuck@chihai.me>",
     "repository": {
         "type": "git",
-        "url": "https://github.com/chihai-chuck/eagle-plugin-lottie-preview.git"
+        "url": "https://github.com/chihai-chuck/eagle-plugin-lottie-format-extension.git"
     },
     "files": [
         "dist"
