@@ -20,7 +20,7 @@ gulp.task('build:core', () => {
 
 gulp.task('build:js', gulp.series('build:core', () => {
     return gulp.src(['./src/plugin/**/*.js', '!./src/plugin/lib/*.js'])
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('./dist'));
 }));
 
