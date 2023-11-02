@@ -3,10 +3,21 @@
     "version": "1.0.0",
     "platform": "all",
     "arch": "all",
-    "name": "dotLottie 格式扩展",
+    "name": "{{manifest.app.name}}",
     "logo": "/logo.png",
-    "keywords": ["Lottie", "dotLottie"],
     "devTools": true,
+    "keywords": ["Lottie", "dotLottie"],
+    "fallbackLanguage": "zh_CN",
+    "languages": [
+        "de_DE",
+        "en",
+        "es_ES",
+        "ja_JP",
+        "ko_KR",
+        "ru_RU",
+        "zh_CN",
+        "zh_TW"
+    ],
     "preview": {
         "lottie": {
             "thumbnail": {
