@@ -1,14 +1,15 @@
 import typescript from "rollup-plugin-typescript2";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 
 export default [
     {
         input: "src/core/index.ts",
         output: {
             file: "build/core.js",
-            format: "cjs"
+            format: "cjs",
+            inlineDynamicImports: true
         },
         plugins: [
             typescript({
