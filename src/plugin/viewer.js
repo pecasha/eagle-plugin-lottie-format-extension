@@ -26,6 +26,13 @@ window.onload = async () => {
         const player = document.querySelector("dotlottie-player");
         await player.load(filePath);
 
+        const lottie = player.getLottie();
+
+        if(lottie.animationData.w < window.innerWidth && lottie.animationData.h < window.innerHeight) {
+            player.style.width = `${lottie.animationData.w}px`;
+            player.style.height = `${lottie.animationData.h}px`;
+        }
+
         let totalFrames = player.getLottie().totalFrames;
         $durationTotal.innerHTML = totalFrames.toString();
 
