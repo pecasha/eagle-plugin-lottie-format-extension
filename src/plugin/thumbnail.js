@@ -20,7 +20,7 @@ module.exports = async ({ src, dest, item }) => {
             player.pause();
             const lottie = player.getLottie();
 
-            const width = lottie.animationData.w
+            const width = lottie.animationData.w;
             const height = lottie.animationData.h;
 
             const svg = new Blob([player.snapshot(false)], {
@@ -51,6 +51,7 @@ module.exports = async ({ src, dest, item }) => {
 
             item.width = width;
             item.height = height;
+            item.duration = lottie.animationData.op / lottie.animationData.fr;
             resolve(item);
         } catch (err) {
             reject(err);
