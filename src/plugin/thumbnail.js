@@ -51,7 +51,7 @@ module.exports = async ({ src, dest, item }) => {
 
             item.width = width;
             item.height = height;
-            item.duration = lottie.animationData.op / lottie.animationData.fr;
+            item.duration = Math.ceil(lottie.animationData.op / lottie.animationData.fr);
             resolve(item);
         } catch (err) {
             reject(err);
